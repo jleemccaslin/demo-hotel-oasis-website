@@ -23,7 +23,7 @@ export default function Page() {
         <SelectCountry
           name="nationality"
           id="nationality"
-          className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
+          className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-xs rounded-xs"
           defaultCountry={nationality}
         />
       </UpdateProfileForm>

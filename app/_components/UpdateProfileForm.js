@@ -11,7 +11,7 @@ export default function UpdateProfileForm({ children }) {
         <label>Full name</label>
         <input
           disabled
-          className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
+          className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-xs rounded-xs disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
         />
       </div>
 
@@ -19,7 +19,7 @@ export default function UpdateProfileForm({ children }) {
         <label>Email address</label>
         <input
           disabled
-          className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
+          className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-xs rounded-xs disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
         />
       </div>
 
@@ -30,7 +30,7 @@ export default function UpdateProfileForm({ children }) {
             fill
             src={countryFlag}
             alt="Country flag"
-            className="h-5 rounded-sm"
+            className="h-5 rounded-xs"
           />
         </div>
 
@@ -41,7 +41,7 @@ export default function UpdateProfileForm({ children }) {
         <label htmlFor="nationalID">National ID number</label>
         <input
           name="nationalID"
-          className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
+          className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-xs rounded-xs"
         />
       </div>
 

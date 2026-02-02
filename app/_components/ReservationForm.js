@@ -29,7 +29,7 @@ function ReservationForm({ cabin }) {
           <select
             name="numGuests"
             id="numGuests"
-            className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
+            className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-xs rounded-xs"
             required
           >
             <option value="" key="">
@@ -50,7 +50,7 @@ function ReservationForm({ cabin }) {
           <textarea
             name="observations"
             id="observations"
-            className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
+            className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-xs rounded-xs"
             placeholder="Any pets, allergies, special requirements, etc.?"
           />
         </div>
