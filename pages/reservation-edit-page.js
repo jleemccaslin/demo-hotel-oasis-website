@@ -15,7 +15,7 @@ export default function Page() {
           <select
             name="numGuests"
             id="numGuests"
-            className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
+            className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-xs rounded-xs"
             required
           >
             <option value="" key="">
@@ -35,7 +35,7 @@ export default function Page() {
           </label>
           <textarea
             name="observations"
-            className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
+            className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-xs rounded-xs"
           />
         </div>
 
