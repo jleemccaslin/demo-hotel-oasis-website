@@ -3,10 +3,7 @@ import Reservation from "@/app/_components/Reservation";
 import Spinner from "@/app/_components/Spinner";
 import { getCabin, getCabins } from "@/app/_lib/data-service";
 import { Suspense } from "react";
-
-interface CabinParams {
-  params: { cabinID: string };
-}
+import { CabinParams } from "@/app/types/interfaces";
 
 export async function generateMetadata({ params }: CabinParams) {
   const { name } = await getCabin(params.cabinID);

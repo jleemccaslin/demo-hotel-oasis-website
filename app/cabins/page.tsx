@@ -4,15 +4,15 @@ import Spinner from "../_components/Spinner";
 import Filter from "../_components/Filter";
 import ReservationReminder from "../_components/ReservationReminder";
 
+interface SearchParams {
+  searchParams: { [key: string]: string } | Record<string, never>;
+}
+
 export const metadata = {
   title: "Cabins",
 };
 
-interface PageParams {
-  searchParams: { [key: string]: string } | Record<string, never>;
-}
-
-export default function Page({ searchParams }: PageParams) {
+export default function Page({ searchParams }: SearchParams) {
   const filter = searchParams?.capacity ?? "all";
 
   return (
