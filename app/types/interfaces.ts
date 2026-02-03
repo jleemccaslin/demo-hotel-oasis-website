@@ -13,3 +13,11 @@ export interface CabinInterface {
 export interface CabinParams {
   params: { cabinID: string };
 }
+
+export interface UserInterface {
+  user: {
+    name?: string | null | undefined;
+    email?: string | null | undefined;
+    image?: string | null | undefined;
+  };
+}

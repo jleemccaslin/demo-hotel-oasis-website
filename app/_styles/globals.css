@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 @theme {
   --color-primary-50: #e1e8ef;
@@ -65,7 +65,6 @@
 }
 
 @layer components {
-
   @keyframes rotate {
     to {
       transform: rotate(1turn);
@@ -79,4 +78,30 @@
   --rdp-accent-color: var(--color-accent-500) !important;
   --rdp-background-color: var(--color-accent-600) !important;
   margin: 0 !important;
+}
+.rdp-months {
+  flex-direction: column;
+  margin: -1rem 0 1rem 0;
+}
+.rdp-months .rdp-month {
+  margin: 0 0 1rem 0;
+}
+@media screen and (min-width: 580px) {
+  .rdp-months {
+    flex-direction: row;
+  }
+  .rdp-months.rdp-month:first-child {
+    margin-left: 0;
+  }
+  .rdp-months .rdp-month:last-child {
+    margin-right: 0;
+  }
+  .rdp-months .rdp-month {
+    margin: 0 1em;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .rdp-months {
+    margin: 0;
+  }
 }
