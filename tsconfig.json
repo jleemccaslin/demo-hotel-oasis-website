@@ -2,18 +2,10 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@static/*": [
-        "./public/*"
-      ],
-      "@/*": [
-        "./*"
-      ]
+      "@static/*": ["./public/*"],
+      "@/*": ["./*"]
     },
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "target": "es5",
     "jsx": "preserve",
     "allowJs": true,
@@ -43,7 +35,5 @@
     "public",
     ".next/types/**/*.ts"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

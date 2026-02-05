@@ -3,7 +3,7 @@
 # Roadmap
 
 - Replace remaining low-quality AI photos with proper photographs
-- Upgrade to Next 15
+- Upgrade to Next 16
 - Complete responsive layout
 - Upgrade fully to TypeScript
 
