@@ -18,11 +18,11 @@ export default function Cabin({ cabin }: CabinInterface) {
       </div>
 
       <div>
-        <h3 className="text-accent-100 font-black text-7xl mb-5 -translate-y-90 text-right md:text-left md:translate-y-0 md:translate-x-[-254px] bg-primary-950 p-6 pb-1 md:w-[150%]">
+        <h3 className="text-accent-100 font-black text-7xl mb-5 -translate-y-89.25 text-right md:text-left md:translate-y-0 md:-translate-x-63.5 bg-primary-950 p-6 pb-1 md:w-[150%]">
           Cabin {name}
         </h3>
 
-        <p className="text-lg text-primary-300 -mt-18 mb-10 px-10 mt:auto md:px-0">
+        <p className="text-lg text-primary-300 -mt-18 mb-10 px-10 md:mt-auto md:px-0">
           <TextExpander>{description}</TextExpander>
         </p>
 
