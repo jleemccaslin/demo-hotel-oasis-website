@@ -1,16 +1,39 @@
 "use client";
 
 import Image from "next/image";
+import { updateGuest } from "../_lib/actions";
 
-export default function UpdateProfileForm({ children }) {
-  const countryFlag = "/pt.jpg";
+interface Guest {
+  id: number;
+  created_at: string;
+  fullName?: string;
+  email?: string;
+  nationalID?: string | number | readonly string[] | undefined;
+  nationality?: string | null;
+  countryFlag?: string;
+}
+
+interface UpdateProfileForm {
+  guest: Guest;
+  children: React.ReactNode;
+}
+
+export default function UpdateProfileForm({
+  guest,
+  children,
+}: UpdateProfileForm) {
+  const { fullName, email, nationality, nationalID, countryFlag } = guest;
 
   return (
-    <form className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col">
+    <form
+      action={updateGuest}
+      className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col"
+    >
       <div className="space-y-2">
         <label>Full name</label>
         <input
-          disabled
+          defaultValue={fullName}
+          name="fullName"
           className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-xs rounded-xs disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
         />
       </div>
@@ -18,7 +41,8 @@ export default function UpdateProfileForm({ children }) {
       <div className="space-y-2">
         <label>Email address</label>
         <input
-          disabled
+          defaultValue={email}
+          name="email"
           className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-xs rounded-xs disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
         />
       </div>
@@ -26,12 +50,12 @@ export default function UpdateProfileForm({ children }) {
       <div className="space-y-2">
         <div className="flex items-center justify-between">
           <label htmlFor="nationality">Where are you from?</label>
-          <Image
+          {/* <Image
             fill
             src={countryFlag}
             alt="Country flag"
             className="h-5 rounded-xs"
-          />
+          /> */}
         </div>
 
         {children}
@@ -41,6 +65,7 @@ export default function UpdateProfileForm({ children }) {
         <label htmlFor="nationalID">National ID number</label>
         <input
           name="nationalID"
+          defaultValue={nationalID}
           className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-xs rounded-xs"
         />
       </div>
