@@ -6,6 +6,12 @@ import "react-day-picker/dist/style.css";
 import { useReservation } from "./ReservationContext";
 import { CabinInterface, SettingsInterface } from "../types/interfaces";
 
+interface DateSelectorParams {
+  settings: SettingsInterface;
+  bookedDates: Date[];
+  cabin: CabinInterface;
+}
+
 function isAlreadyBooked(range: any, datesArr: any[]) {
   return (
     range.from &&
@@ -14,12 +20,6 @@ function isAlreadyBooked(range: any, datesArr: any[]) {
       isWithinInterval(date, { start: range.from, end: range.to }),
     )
   );
-}
-
-interface DateSelectorParams {
-  settings: SettingsInterface;
-  bookedDates: Date[];
-  cabin: CabinInterface;
 }
 
 function DateSelector({ settings, bookedDates, cabin }: DateSelectorParams) {
