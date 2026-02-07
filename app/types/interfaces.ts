@@ -1,3 +1,20 @@
+export interface BookingInterface {
+  id: number;
+  guestID?: number;
+  startDate: string;
+  endDate: Date;
+  numNights?: number;
+  totalPrice?: number;
+  numGuests: number;
+  status?: string;
+  created_at: Date;
+  cabins?: any;
+}
+
+export interface BookingInterfaceParams {
+  booking: BookingInterface;
+}
+
 export interface CabinInterface {
   id: string;
   name: string;

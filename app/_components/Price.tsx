@@ -1,7 +1,14 @@
 import { getCabinPrice } from "@/app/_lib/data-service";
 
-async function Price({ cabinID }) {
-  const { regularPrice, discount } = await getCabinPrice(cabinID);
+interface PriceParams {
+  cabinID: string;
+}
+
+async function Price({ cabinID }: PriceParams) {
+  const cabinPrice = await getCabinPrice(cabinID);
+  if (!cabinPrice) throw new Error("Cabin price not found");
+
+  const { regularPrice, discount } = cabinPrice;
 
   return (
     <p className="mt-12 text-3xl flex gap-3 items-baseline">

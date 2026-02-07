@@ -1,7 +1,7 @@
 import { TrashIcon } from "@heroicons/react/24/solid";
 
 interface DeleteReservationParams {
-  bookingID: string;
+  bookingID: number;
 }
 
 function DeleteReservation({ bookingID }: DeleteReservationParams) {

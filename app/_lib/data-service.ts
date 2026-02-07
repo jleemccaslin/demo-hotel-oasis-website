@@ -1,7 +1,7 @@
 import { eachDayOfInterval } from "date-fns";
 import { supabase } from "./supabase";
 import { notFound } from "next/navigation";
-import { GuestInterface } from "../types/interfaces";
+import { BookingInterface, GuestInterface } from "../types/interfaces";
 
 /////////////
 // GET
@@ -164,7 +164,7 @@ export async function createGuest(newGuest: GuestInterface) {
   return data;
 }
 
-export async function createBooking(newBooking: any) {
+export async function createBooking(newBooking: BookingInterface) {
   const { data, error } = await supabase
     .from("bookings")
     .insert([newBooking])
@@ -200,7 +200,10 @@ export async function updateGuest(id: string, updatedFields: GuestInterface) {
   return data;
 }
 
-export async function updateBooking(id: string, updatedFields: any) {
+export async function updateBooking(
+  id: string,
+  updatedFields: BookingInterface,
+) {
   const { data, error } = await supabase
     .from("bookings")
     .update(updatedFields)
