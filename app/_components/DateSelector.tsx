@@ -5,7 +5,7 @@ import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { useReservation } from "./ReservationContext";
 
-function isAlreadyBooked(range, datesArr) {
+function isAlreadyBooked(range: any, datesArr: any[]) {
   return (
     range.from &&
     range.to &&
@@ -15,7 +15,13 @@ function isAlreadyBooked(range, datesArr) {
   );
 }
 
-function DateSelector({ settings, cabin, bookedDates }) {
+interface DateSelectorParams {
+  settings: any;
+  cabin: any;
+  bookedDates: any;
+}
+
+function DateSelector({ settings, cabin, bookedDates }: DateSelectorParams) {
   const { range, setRange, resetRange } = useReservation();
 
   // CHANGE
