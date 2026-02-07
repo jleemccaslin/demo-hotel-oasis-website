@@ -13,7 +13,7 @@ interface Guest {
   countryFlag?: string;
 }
 
-interface UpdateProfileForm {
+interface UpdateProfileFormParams {
   guest: Guest;
   children: React.ReactNode;
 }
@@ -21,7 +21,7 @@ interface UpdateProfileForm {
 export default function UpdateProfileForm({
   guest,
   children,
-}: UpdateProfileForm) {
+}: UpdateProfileFormParams) {
   const { fullName, email, nationality, nationalID, countryFlag } = guest;
 
   return (
