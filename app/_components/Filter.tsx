@@ -2,6 +2,15 @@
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
+//========= TYPES ============
+interface ButtonParams {
+  children: React.ReactNode;
+  filter: string;
+  handleFilter: (filter: string) => void;
+  activeFilter: string;
+}
+
+//========= MAIN COMPONENT ============
 export default function Filter() {
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -9,7 +18,7 @@ export default function Filter() {
 
   const activeFilter = searchParams.get("capacity") ?? "all";
 
-  function handleFilter(filter: any) {
+  function handleFilter(filter: string) {
     const params = new URLSearchParams(searchParams);
     params.set("capacity", filter);
     router.replace(`${pathname}?${params.toString()}`, { scroll: false });
@@ -49,19 +58,14 @@ export default function Filter() {
   );
 }
 
-interface ButtonParams {
-  children: React.ReactNode;
-  filter: any;
-  handleFilter: any;
-  activeFilter: any;
-}
-
+//========= SUB-COMPONENT ============
 function Button({
   children,
   filter,
   handleFilter,
   activeFilter,
 }: ButtonParams) {
+  console.log(activeFilter);
   return (
     <button
       className={`${filter === activeFilter ? "bg-primary-700 text-primary-50" : ""} px-5 py-2 hover:bg-primary-700`}

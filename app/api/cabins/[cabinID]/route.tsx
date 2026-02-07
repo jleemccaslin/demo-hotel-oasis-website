@@ -1,7 +1,8 @@
 import { getBookedDatesByCabinID, getCabin } from "@/app/_lib/data-service";
 import { CabinParams } from "@/app/types/interfaces";
+import { NextRequest } from "next/server";
 
-export async function GET(request: any, { params }: CabinParams) {
+export async function GET(request: NextRequest, { params }: CabinParams) {
   const { cabinID } = params;
 
   try {

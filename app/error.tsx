@@ -1,8 +1,8 @@
 "use client";
 
 interface ErrorParams {
-  error: any;
-  reset: any;
+  error: Error;
+  reset: () => void;
 }
 
 export default function Error({ error, reset }: ErrorParams) {

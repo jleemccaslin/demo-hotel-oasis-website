@@ -2,19 +2,10 @@
 
 import { useFormStatus } from "react-dom";
 import { updateGuest } from "../_lib/actions";
-
-interface Guest {
-  id: number;
-  created_at: string;
-  fullName?: string;
-  email?: string;
-  nationalID?: string | number | readonly string[] | undefined;
-  nationality?: string | null;
-  countryFlag?: string;
-}
+import { GuestInterface } from "../types/interfaces";
 
 interface UpdateProfileFormParams {
-  guest: Guest;
+  guest: GuestInterface;
   children: React.ReactNode;
 }
 
@@ -22,7 +13,7 @@ export default function UpdateProfileForm({
   guest,
   children,
 }: UpdateProfileFormParams) {
-  const { fullName, email, nationality, nationalID, countryFlag } = guest;
+  const { fullName, email, nationalID, countryFlag } = guest;
 
   return (
     <form
@@ -30,17 +21,18 @@ export default function UpdateProfileForm({
       className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col"
     >
       <div className="space-y-2">
-        <label>Full name</label>
+        <label htmlFor="fullName">Full name</label>
         <input
-          defaultValue={fullName}
           name="fullName"
-          className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-xs rounded-xs disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
+          defaultValue={fullName}
+          className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-xs rounded-xs"
         />
       </div>
 
       <div className="space-y-2">
-        <label>Email address</label>
+        <label htmlFor="email">Email address</label>
         <input
+          disabled
           defaultValue={email}
           name="email"
           className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-xs rounded-xs disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"

@@ -1,9 +1,9 @@
 import Image from "next/image";
 import TextExpander from "./TextExpander";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
-import { CabinInterface } from "@/app/types/interfaces";
+import { CabinInterfaceParams } from "@/app/types/interfaces";
 
-export default function Cabin({ cabin }: CabinInterface) {
+export default function Cabin({ cabin }: CabinInterfaceParams) {
   const { name, maxCapacity, image, description } = cabin;
 
   return (

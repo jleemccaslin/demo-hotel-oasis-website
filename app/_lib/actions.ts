@@ -11,6 +11,7 @@ export async function updateGuest(formData: FormData) {
 
   if (formData === null) return;
 
+  const fullName = formData.get("fullName");
   const nationalID = formData.get("nationalID");
   const [nationality, countryFlag] = String(formData.get("nationality"))?.split(
     "%",
@@ -19,7 +20,7 @@ export async function updateGuest(formData: FormData) {
   if (!/^[a-zA-Z0-9]{6,12}$/.test(nationalID as string))
     throw new Error("Please provide a valid national ID");
 
-  const updateData = { nationality, countryFlag, nationalID };
+  const updateData = { fullName, nationality, countryFlag, nationalID };
 
   const { data, error } = await supabase
     .from("guests")
