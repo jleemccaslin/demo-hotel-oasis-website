@@ -1,7 +1,7 @@
 "use client";
 
 import { isWithinInterval } from "date-fns";
-import { DayPicker } from "react-day-picker";
+import { DayPicker, DateRange } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { useReservation } from "./ReservationContext";
 
@@ -33,12 +33,16 @@ function DateSelector({ settings, cabin, bookedDates }: DateSelectorParams) {
   // SETTINGS
   const { minBookingLength, maxBookingLength } = settings;
 
+  const handleSelect = (selectedRange: DateRange | undefined) => {
+    setRange(selectedRange || { from: undefined, to: undefined });
+  };
+
   return (
     <div className="flex flex-col justify-between">
       <DayPicker
         className="pt-12 place-self-center"
         mode="range"
-        onSelect={setRange}
+        onSelect={handleSelect}
         selected={range}
         min={minBookingLength + 1}
         max={maxBookingLength}

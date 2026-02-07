@@ -7,12 +7,10 @@ import {
   useContext,
   useState,
 } from "react";
+import { DateRange } from "react-day-picker";
 
 //============== TYPES============
-interface Range {
-  from: string | undefined;
-  to: string | undefined;
-}
+type Range = DateRange;
 
 interface ReservationContextType {
   range: Range;
