@@ -23,7 +23,7 @@ export default function Cabin({ cabin }: CabinInterface) {
         </h3>
 
         <p className="text-lg text-primary-300 -mt-18 mb-10 px-10 md:mt-auto md:px-0">
-          <TextExpander>{description}</TextExpander>
+          <TextExpander>{description as string}</TextExpander>
         </p>
 
         <ul className="flex flex-col gap-4 mb-7 px-10 md:px-0">
