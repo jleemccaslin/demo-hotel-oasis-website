@@ -1,18 +1,19 @@
 import { PencilSquareIcon } from "@heroicons/react/24/solid";
 import { format, formatDistance, isPast, isToday, parseISO } from "date-fns";
+import { BookingInterfaceParams } from "../types/interfaces";
 import DeleteReservation from "./DeleteReservation";
 import Image from "next/image";
 import Link from "next/link";
 
-export const formatDistanceFromNow = (dateStr) =>
-  formatDistance(parseISO(dateStr), new Date(), {
+export const formatDistanceFromNow = (date: string) =>
+  formatDistance(parseISO(date), new Date(), {
     addSuffix: true,
   }).replace("about ", "");
 
-function ReservationCard({ booking }) {
+function ReservationCard({ booking }: BookingInterfaceParams) {
   const {
     id,
-    guestId,
+    guestID,
     startDate,
     endDate,
     numNights,
@@ -78,7 +79,7 @@ function ReservationCard({ booking }) {
           <PencilSquareIcon className="h-5 w-5 text-primary-600 group-hover:text-primary-800 transition-colors" />
           <span className="mt-1">Edit</span>
         </Link>
-        <DeleteReservation bookingId={id} />
+        <DeleteReservation bookingID={id} />
       </div>
     </div>
   );

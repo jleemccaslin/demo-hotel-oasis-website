@@ -26,6 +26,7 @@ export const { auth, signIn, signOut, handlers } = NextAuth({
     async signIn({ user }) {
       try {
         if (user.email === undefined || user.email === null) return false;
+        if (user.name === undefined || user.name === null) return false;
 
         const existingGuest = await getGuest(user.email);
 

@@ -1,9 +1,9 @@
 import { UsersIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
-import { CabinInterface } from "@/app/types/interfaces";
+import { CabinInterfaceParams } from "@/app/types/interfaces";
 
-function CabinCard({ cabin }: CabinInterface) {
+function CabinCard({ cabin }: CabinInterfaceParams) {
   const { id, name, maxCapacity, regularPrice, discount, image } = cabin;
 
   return (

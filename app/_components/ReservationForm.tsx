@@ -1,16 +1,14 @@
 "use client";
 
 import { useReservation } from "./ReservationContext";
-import { UserInterface, CabinInterface } from "../types/interfaces";
+import { UserInterface, CabinInterfaceParams } from "../types/interfaces";
 
 interface ReservationFormParams
-  extends CabinInterface, Partial<UserInterface> {}
+  extends CabinInterfaceParams, Partial<UserInterface> {}
 
 function ReservationForm({ cabin, user }: ReservationFormParams) {
   const { range } = useReservation();
   const { maxCapacity } = cabin;
-
-  console.log(user?.name, user?.image);
 
   return (
     <div className="scale-[1.01]">

@@ -1,12 +1,12 @@
 import { getBookedDatesByCabinID, getSettings } from "../_lib/data-service";
 import DateSelector from "./DateSelector";
 import ReservationForm from "./ReservationForm";
-import { CabinInterface } from "../types/interfaces";
+import { CabinInterfaceParams } from "../types/interfaces";
 import { auth } from "../_lib/auth";
 import LoginMessage from "./LoginMessage";
 
-export default async function Reservation({ cabin }: CabinInterface) {
-  const [settings, bookedDates] = await Promise.all([
+export default async function Reservation({ cabin }: CabinInterfaceParams) {
+  const [bookedDates, settings] = await Promise.all([
     getBookedDatesByCabinID(cabin.id),
     getSettings(),
   ]);

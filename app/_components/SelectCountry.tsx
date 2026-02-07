@@ -7,6 +7,12 @@ interface SelectCountryParams {
   className: string;
 }
 
+interface Country {
+  name: string;
+  flag: string;
+  independent: boolean;
+}
+
 async function SelectCountry({
   defaultCountry,
   name,
@@ -15,8 +21,8 @@ async function SelectCountry({
 }: SelectCountryParams) {
   const countries = await getCountries();
   const flag =
-    countries.find((country: any) => country.name === defaultCountry)?.flag ??
-    "";
+    countries.find((country: Country) => country.name === defaultCountry)
+      ?.flag ?? "";
 
   return (
     <select
@@ -27,7 +33,7 @@ async function SelectCountry({
       className={className}
     >
       <option value="">Select country...</option>
-      {countries.map((country: any) => (
+      {countries.map((country: Country) => (
         <option key={country.name} value={`${country.name}%${country.flag}`}>
           {country.name}
         </option>
