@@ -1,25 +1,22 @@
 "use server";
 
+import { revalidatePath } from "next/cache";
 import { auth, signIn, signOut } from "./auth";
 import { supabase } from "./supabase";
 
-interface UpdateGuestFormData {
-  [key: string]: string;
-  fullName: string;
-  email: string;
-  nationality: string;
-  nationalID: string;
-}
-
 //Common practice in server actions not to use try/catch but throw errors in function body, which will be caught by nearest error bouondary
-export async function updateGuest(formData: any) {
+export async function updateGuest(formData: FormData) {
   const session = await auth();
   if (!session) throw new Error("You must be logged in.");
 
-  const nationalID = formData.get("nationalID");
-  const [nationality, countryFlag] = formData.get("nationality").split("%");
+  if (formData === null) return;
 
-  if (!/^[a-zA-Z0-9]{6,12}$/.test(nationalID))
+  const nationalID = formData.get("nationalID");
+  const [nationality, countryFlag] = String(formData.get("nationality"))?.split(
+    "%",
+  );
+
+  if (!/^[a-zA-Z0-9]{6,12}$/.test(nationalID as string))
     throw new Error("Please provide a valid national ID");
 
   const updateData = { nationality, countryFlag, nationalID };
@@ -33,6 +30,8 @@ export async function updateGuest(formData: any) {
     console.error(error);
     throw new Error("Guest could not be updated");
   }
+
+  revalidatePath("/account/profile");
 }
 
 export async function signInAction() {
