@@ -2,12 +2,20 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@static/*": ["./public/*"],
-      "@/*": ["./*"]
+      "@static/*": [
+        "./public/*"
+      ],
+      "@/*": [
+        "./*"
+      ]
     },
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "target": "es5",
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -33,7 +41,10 @@
     "**/*.tsx",
     "next.config.mjs",
     "public",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules"
+  ]
 }

@@ -20,7 +20,7 @@ export async function generateStaticParams() {
 }
 
 export default async function Page(props: CabinParams) {
-  const params = props.params;
+  const params = await props.params;
   const cabin = await getCabin(params.cabinID);
 
   return (
