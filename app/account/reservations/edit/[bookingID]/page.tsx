@@ -4,12 +4,13 @@ import { getBooking, getCabin } from "@/app/_lib/data-service";
 import { BookingInterfaceParams } from "@/app/types/interfaces";
 
 interface PageParams {
-  params: {
+  params: Promise<{
     bookingID: string;
-  };
+  }>;
 }
 
-export default async function Page({ params }: PageParams) {
+export default async function Page(props: PageParams) {
+  const params = await props.params;
   const { bookingID } = params;
 
   const { numGuests, observations, cabinID } = await getBooking(bookingID);
