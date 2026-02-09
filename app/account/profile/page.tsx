@@ -14,8 +14,6 @@ export default async function Page() {
 
   const guest = await getGuest(session?.user.email);
 
-  console.log(guest);
-
   return (
     <div>
       <h2 className="font-semibold text-2xl text-accent-400 mb-4">
