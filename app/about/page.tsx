@@ -34,9 +34,11 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="col-span-2">
+      <div className="col-span-2 relative aspect-square">
         <Image
+          className="object-cover"
           src={aboutImg1}
+          fill
           placeholder="blur"
           alt="Family sitting around a fire pit in front of cabin"
         />
