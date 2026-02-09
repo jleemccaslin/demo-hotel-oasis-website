@@ -5,14 +5,15 @@ import Filter from "../_components/Filter";
 import ReservationReminder from "../_components/ReservationReminder";
 
 interface SearchParams {
-  searchParams: { [key: string]: string } | Record<string, never>;
+  searchParams: Promise<{ [key: string]: string } | Record<string, never>>;
 }
 
 export const metadata = {
   title: "Cabins",
 };
 
-export default function Page({ searchParams }: SearchParams) {
+export default async function Page(props: SearchParams) {
+  const searchParams = await props.searchParams;
   const filter = searchParams?.capacity ?? "all";
 
   return (
