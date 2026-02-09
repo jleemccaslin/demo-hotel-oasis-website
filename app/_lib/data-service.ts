@@ -185,7 +185,6 @@ export async function createBooking(newBooking: BookingInterface) {
 
 // The updatedFields is an object which should ONLY contain the updated data
 export async function updateGuest(id: string, updatedFields: GuestInterface) {
-  console.log(id, updatedFields);
   const { data, error } = await supabase
     .from("guests")
     .update(updatedFields)

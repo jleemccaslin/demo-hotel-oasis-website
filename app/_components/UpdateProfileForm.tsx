@@ -3,6 +3,7 @@
 import { useFormStatus } from "react-dom";
 import { updateGuest } from "../_lib/actions";
 import { GuestInterface } from "../types/interfaces";
+import SubmitButton from "./SubmitButton";
 
 interface UpdateProfileFormParams {
   guest: GuestInterface;
@@ -42,11 +43,15 @@ export default function UpdateProfileForm({
       <div className="space-y-2">
         <div className="flex items-center justify-between">
           <label htmlFor="nationality">Where are you from?</label>
-          <img
-            src={countryFlag as string}
-            alt="Country flag"
-            className="h-5 rounded-xs relative"
-          />
+          {countryFlag !== "" ? (
+            <img
+              src={countryFlag as string}
+              alt="Country flag"
+              className="h-5 rounded-xs relative"
+            />
+          ) : (
+            ""
+          )}
         </div>
 
         {children}
@@ -61,7 +66,7 @@ export default function UpdateProfileForm({
         />
       </div>
 
-      <div className="flex justify-end items-center gap-6">
+      <div className="flex justify-center md:justify-end items-center gap-6">
         <Button />
       </div>
     </form>
@@ -71,12 +76,5 @@ export default function UpdateProfileForm({
 function Button() {
   const { pending } = useFormStatus();
 
-  return (
-    <button
-      className="bg-accent-500 px-8 py-4 text-primary-800 font-semibold hover:bg-accent-600 transition-all disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300"
-      disabled={pending}
-    >
-      {pending ? "Updating..." : "Update profile"}
-    </button>
-  );
+  return <SubmitButton pendingLabel="Updating...">Update profile</SubmitButton>;
 }

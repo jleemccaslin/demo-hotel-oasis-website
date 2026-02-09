@@ -65,7 +65,6 @@ function Button({
   handleFilter,
   activeFilter,
 }: ButtonParams) {
-  console.log(activeFilter);
   return (
     <button
       className={`${filter === activeFilter ? "bg-primary-700 text-primary-50" : ""} px-5 py-2 hover:bg-primary-700`}

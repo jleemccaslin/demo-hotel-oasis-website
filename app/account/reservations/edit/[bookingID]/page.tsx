@@ -1,20 +1,37 @@
-export default function Page() {
-  // CHANGE
-  const reservationId = 23;
-  const maxCapacity = 23;
+import SubmitButton from "@/app/_components/SubmitButton";
+import { updateBooking } from "@/app/_lib/actions";
+import { getBooking, getCabin } from "@/app/_lib/data-service";
+import { BookingInterfaceParams } from "@/app/types/interfaces";
+
+interface PageParams {
+  params: {
+    bookingID: string;
+  };
+}
+
+export default async function Page({ params }: PageParams) {
+  const { bookingID } = params;
+
+  const { numGuests, observations, cabinID } = await getBooking(bookingID);
+  const { maxCapacity } = await getCabin(cabinID);
 
   return (
     <div>
       <h2 className="font-semibold text-2xl text-accent-400 mb-7">
-        Edit Reservation #{reservationId}
+        Edit Reservation #{bookingID}
       </h2>
 
-      <form className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col">
+      <form
+        action={updateBooking}
+        className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col"
+      >
+        <input type="hidden" value={bookingID} name="bookingID" />
         <div className="space-y-2">
           <label htmlFor="numGuests">How many guests?</label>
           <select
             name="numGuests"
             id="numGuests"
+            defaultValue={numGuests}
             className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-xs rounded-xs"
             required
           >
@@ -35,14 +52,15 @@ export default function Page() {
           </label>
           <textarea
             name="observations"
+            defaultValue={observations}
             className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-xs rounded-xs"
           />
         </div>
 
-        <div className="flex justify-end items-center gap-6">
-          <button className="bg-accent-500 px-8 py-4 text-primary-800 font-semibold hover:bg-accent-600 transition-all disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300">
+        <div className="flex justify-center md:justify-end items-center gap-6">
+          <SubmitButton pendingLabel="Updating...">
             Update reservation
-          </button>
+          </SubmitButton>
         </div>
       </form>
     </div>
