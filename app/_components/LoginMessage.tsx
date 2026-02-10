@@ -9,7 +9,7 @@ function LoginMessage() {
           login
         </a>{" "}
         to reserve this
-        <br /> cabin right now
+        <br /> cabin.
       </p>
     </div>
   );
