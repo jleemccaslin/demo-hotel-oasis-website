@@ -78,9 +78,9 @@
   --rdp-accent-color: var(--color-accent-500) !important;
   --rdp-background-color: var(--color-accent-600) !important;
   --rdp-day-height: 35px !important;
-  --rdp-day-width: 35px !important;
+  --rdp-day-width: 32px !important;
   --rdp-day_button-height: 35px !important;
-  --rdp-day_button-width: 35px !important;
+  --rdp-day_button-width: 32px !important;
   margin: 0 !important;
 }
 
@@ -90,7 +90,7 @@
 }
 .rdp-months .rdp-month {
   margin: 0 0 1rem 0;
-  width: 38%;
+  width: 37%;
 }
 @media screen and (min-width: 580px) {
   .rdp-months {
