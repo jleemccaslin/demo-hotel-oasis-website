@@ -3,7 +3,7 @@ import TextExpander from "./TextExpander";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import { CabinInterfaceParams } from "@/app/types/interfaces";
 
-export default function Cabin({ cabin }: CabinInterfaceParams) {
+export default async function Cabin({ cabin }: CabinInterfaceParams) {
   const { name, maxCapacity, image, description } = cabin;
 
   return (
@@ -11,6 +11,9 @@ export default function Cabin({ cabin }: CabinInterfaceParams) {
       <div className="relative h-102 md:h-auto md:scale-x-[1.15] md:scale-y-[1.15] md:-translate-x-3">
         <Image
           fill
+          sizes="(max-width: 768px) 700px, (min-width: 769px) 490px"
+          loading="eager"
+          quality={80}
           className="md:object-cover"
           src={image}
           alt={`Cabin ${name}`}

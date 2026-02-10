@@ -11,8 +11,10 @@ function CabinCard({ cabin }: CabinInterfaceParams) {
       <div className="relative h-52 lg:h-auto lg:flex-1">
         <Image
           fill
+          quality={80}
           src={image}
           alt={`Cabin ${name}`}
+          sizes="(max-width: 768px) 700px, (min-width: 769px) 344px"
           className="flex-1 border-r border-primary-800 object-cover"
         />
       </div>
