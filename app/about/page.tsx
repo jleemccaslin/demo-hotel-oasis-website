@@ -6,12 +6,11 @@ import CabinCounter from "../_components/CabinCounter";
 
 export default function Page() {
   return (
-    <div className="grid grid-cols-5 gap-x-24 gap-y-32 text-lg items-center">
+    <div className="grid md:grid-cols-5 gap-y-10 md:gap-x-24 text-lg items-center">
       <div className="col-span-3">
         <h1 className="text-4xl mb-10 text-accent-400 font-medium">
           Welcome to The Wild Oasis
         </h1>
-
         <div className="space-y-8">
           <p>
             Where nature&apos;s beauty and comfortable living blend seamlessly.
@@ -34,28 +33,33 @@ export default function Page() {
         </div>
       </div>
 
-      <div className="col-span-2">
+      <div className="col-span-5 md:col-span-2 relative aspect-video md:aspect-square order-2">
         <Image
+          className="object-cover"
           src={aboutImg1}
+          fill
+          sizes="450px"
           placeholder="blur"
+          loading="eager"
           alt="Family sitting around a fire pit in front of cabin"
         />
       </div>
 
-      <div className="col-span-2 relative aspect-square">
+      <div className="col-span-5 md:col-span-2 relative aspect-square order-3">
         <Image
           className="object-cover"
           src={aboutImg2}
           fill
+          sizes="450px"
           placeholder="blur"
           alt="Family that manages The Wild Oasis"
         />
       </div>
 
-      <div className="col-span-3">
-        <h1 className="text-4xl mb-10 text-accent-400 font-medium">
+      <div className="col-span-3 order-4">
+        <h2 className="text-4xl mb-10 text-accent-400 font-medium">
           Managed by our family since 1962
-        </h1>
+        </h2>
 
         <div className="space-y-8">
           <p>
