@@ -16,8 +16,3 @@ React v19
 NextJS v16
 
 Tailwind v4
-
-## Roadmap
-- Finish and style "new reservation" capability (date picker upgrade changed styles)
-- Replace remaining low-quality AI photos with proper photographs
-- Complete responsive layout
